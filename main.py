@@ -68,11 +68,17 @@ def main():
             "All Gemini models are unavailable. Please try again later."
         )
 
+      script = response.text or "No text returned"
+
+    os.makedirs("output", exist_ok=True)
+
+    with open("output/soul_ai_script.txt", "w", encoding="utf-8") as file:
+        file.write(script)
+
     print("\n===== GENERATED SCRIPT =====", flush=True)
-    print(response.text or "No text returned", flush=True)
+    print(script, flush=True)
+    print("\nScript saved to output/soul_ai_script.txt", flush=True)
     print("\n===== SOUL AI COMPLETE =====", flush=True)
-
-
 if __name__ == "__main__":
     try:
         main()
