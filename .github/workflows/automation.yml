@@ -24,3 +24,11 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python main.py
+        
+      - name: Save Generated Script
+        uses: actions/upload-artifact@v4
+        with:
+          name: Soul-AI-Generated-Script
+          path: output/soul_ai_script.txt
+          if-no-files-found: warn
+
