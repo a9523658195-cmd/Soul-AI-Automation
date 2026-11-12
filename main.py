@@ -64,11 +64,9 @@ def main():
             time.sleep(2)
 
     if response is None:
-        raise RuntimeError(
-            "All Gemini models are unavailable. Please try again later."
-        )
+        raise RuntimeError("All Gemini models are unavailable.")
 
-      script = response.text or "No text returned"
+    script = response.text or "No text returned"
 
     os.makedirs("output", exist_ok=True)
 
@@ -79,6 +77,8 @@ def main():
     print(script, flush=True)
     print("\nScript saved to output/soul_ai_script.txt", flush=True)
     print("\n===== SOUL AI COMPLETE =====", flush=True)
+
+
 if __name__ == "__main__":
     try:
         main()
